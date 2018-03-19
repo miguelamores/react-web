@@ -1,0 +1,41 @@
+@import './global/_button';
+@import './global/_input';
+@import './global/_switch';
+
+// overwritte datepicker styles
+.react-datepicker__current-month,
+.react-datepicker__navigation--previous,
+.react-datepicker__navigation--next,
+.react-datepicker__month-option--selected,
+.react-datepicker__year-option--selected {
+    display: none;
+}
+.react-datepicker__month-read-view--selected-month,
+.react-datepicker__year-read-view--selected-year {
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+.react-datepicker__month-read-view,
+.react-datepicker__year-read-view {
+    visibility: visible !important;
+}
+.react-datepicker__month-read-view--down-arrow,
+.react-datepicker__year-read-view--down-arrow {
+    top: 7px;
+    border-width: 5px;
+    margin-left: 25px;
+}
+.react-datepicker__month-dropdown-container,
+.react-datepicker__year-dropdown-container {
+    padding: 0 5px;
+    position: relative;
+}
+.react-datepicker__month-dropdown,
+.react-datepicker__year-dropdown {
+    width: 100%;
+    left: 0;
+}
+.react-datepicker__month-option {
+    text-transform: capitalize;
+}

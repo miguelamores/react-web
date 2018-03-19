@@ -1,0 +1,29 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    border: none;
+    border-radius: 100px;
+    background-color: $primary-red;
+    text-decoration: none;
+    padding: 11px 11px 13px;
+
+    &.button--inverse {
+        color: $primary-red;
+        background-color: $white;
+    }
+
+    &.button--fb {
+        background-color: $fb-blue;
+    }
+
+    &.button--google {
+        background-color: $google-red;
+    }
+}
+

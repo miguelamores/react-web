@@ -1,0 +1,55 @@
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 31px;
+
+    input {
+        display: none;
+    }
+}
+
+/* The slider */
+.switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $input-border-color;
+    transition: .4s;
+
+    &:before {
+        position: absolute;
+        content: "";
+        height: 19px;
+        width: 19px;
+        left: 9px;
+        bottom: 6px;
+        background-color: $white;
+        transition: .4s;
+    }
+
+    input:checked + & {
+        background-color: $success-green;
+
+        &:before {
+            transform: translateX(19px);
+        }
+    }
+    
+    input:focus + & {
+        box-shadow: 0 0 1px $success-green;
+    }
+
+    /* Rounded sliders */
+    &.round {
+        border-radius: 34px;
+
+        &:before {
+            border-radius: 50%;
+        }
+    }
+}

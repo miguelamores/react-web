@@ -1,0 +1,40 @@
+.input {
+    display: block;
+    font-family: $primary-font;
+    border: 1px solid $input-border-color;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 11px 10px 12px;
+    min-width: 0px;
+    color: $primary-font-color;
+    height: 42px;
+}
+
+@include placeholder {
+    color: $placeholder-font-color;
+}
+
+.date-input {
+    display: flex;
+
+    & > div {
+        flex-grow: 1;
+    }
+
+    .react-datepicker-wrapper,
+    .react-datepicker__input-container {
+        width: 100%;
+    }
+
+    img {
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-left: 12px;
+    }
+}
+
+.inputError {
+    color: $error-red;
+    font-size: 12px;
+    margin: 5px 0px 0px;
+}

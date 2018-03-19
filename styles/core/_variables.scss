@@ -1,0 +1,42 @@
+// Fonts
+$primary-font: 'Montserrat', sans-serif;
+$secondary-font: 'Raleway', sans-serif;
+$third-font: 'Lato', sans-serif;
+$fourth-font: 'Chivo', sans-serif;
+
+$primary-font-color: #28272B;
+$secondary-font-color: #FEFCE7;
+$gray-font-color: #72727F;
+$placeholder-font-color: #868686;
+$brown-font-color: #6A3C26;
+
+// Colors
+$primary-red: #AC1D3A;
+$primary-gray: #F8F9FB;
+
+$category-1: #9CC03D;
+$category-2: #CFAB2C;
+$category-3: #DE3147;
+
+$white: #ffffff;
+$black: #000000;
+$fb-blue: #3B5998;
+$google-red: #DD4B39;
+
+$border-color: #ECEDF0;
+$input-border-color: #DDDDDD;
+$input-border-color-dark: #A8A8B2;
+
+$success-green: #3FD5AE;
+$error-red: #FE6068;
+
+// Breakpoints
+$mq-breakpoints: (
+    mobile:  480px,
+    tablet:  768px,
+    desktop: 1024px,
+    wide:    1440px
+);
+
+// z-index
+$z-index-menu: 100;
