@@ -1,120 +1,72 @@
-import React from 'react'
-import Link from 'next/link'
-import Head from '../components/head'
-import Nav from '../components/nav'
+import React, { Component } from 'react'
 import Header from '../src/components/global/Header'
-import { initStore } from '../src/config/store'
+import initStore  from '../src/config/store'
 import withRedux from 'next-redux-wrapper'
 import { getShows } from '../src/actions/actions'
 import 'rxjs'
 // import { toPromise, delay } from 'rxjs/operators'
 import  TopSlider  from '../src/components/home/TopSlider/index'
+import NoSSR from 'react-no-ssr'
+import { I18nextProvider } from 'react-i18next'
+import startI18n from '../tools/startI18n'
+import { getTranslation } from '../tools/translationHelpers'
+import Loading from '../src/components/global/Loading/Loading'
+
+const lang = 'en'
 
 
-class App extends React.Component{
-  constructor(props) {
-    super(props)
-  }
-
-  static async getInitialProps({ store, isServer}) {
-    /* const action = getShows()
+class App extends Component {
+  
+  static async getInitialProps() {
+    /* onst action = getShows()
     store.dispatch(action)
     console.log('SHOWS-------------------')
     console.log(store.getState().shows)
     return { shows: store.getState().shows } */
+
+    const translations = await getTranslation(
+      lang,
+      ['common', 'namespace1'],
+      'http://localhost:3000/static/locales/'
+    )
+
+    return { translations }
+  }
+
+  constructor (props) {
+    super(props)
+
+    //this.i18n = startI18n(props.translations, lang)
   }
   
-  render() {
+  render () {
 
     return (
+      /* <I18nextProvider i18n={this.i18n}>
+        
+      </I18nextProvider> */
+
       <div>
         <Header />
+        <NoSSR onSSR={<Loading />}>
+            <section>
+              <h2>
+                This section is <em>only</em> client-side rendered.
+              </h2>
+            </section>
+      </NoSSR>
         <TopSlider />
+
         
-                
-        {/* <Head title="Home" />
-        <Nav /> */}
-
-        {/* <div className="hero">
-          <h1 className="title">Welcome to Next!</h1>
-          <p className="description">To get started, edit <code>pages/index.js</code> and save to reload.</p>
-          
-          <div className="row">
-            <Link href="https://github.com/zeit/next.js#getting-started">
-              <a className="card">
-                <h3>Getting Started &rarr;</h3>
-                <p>Learn more about Next on Github and in their examples</p>
-              </a>
-            </Link>
-            <Link href="https://open.segment.com/create-next-app">
-              <a className="card">
-                <h3>Examples &rarr;</h3>
-                <p>
-                  Find other example boilerplates on the <code>create-next-app</code> site
-                </p>
-              </a>
-            </Link>
-            <Link href="https://github.com/segmentio/create-next-app">
-              <a className="card">
-                <h3>Create Next App &rarr;</h3>
-                <p>Was this tool helpful? Let us know how we can improve it</p>
-              </a>
-            </Link>
-          </div>
-        </div>
-
-        <style jsx>{`
-          .hero {
-            width: 100%;
-            color: #333;
-          }
-          .title {
-            margin: 0;
-            width: 100%;
-            padding-top: 80px;
-            line-height: 1.15;
-            font-size: 48px;
-          }
-          .title, .description {
-            text-align: center;
-          }
-          .row {
-            max-width: 880px;
-            margin: 80px auto 40px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-          }
-          .card {
-            padding: 18px 18px 24px;
-            width: 220px;
-            text-align: left;
-            text-decoration: none;
-            color: #434343;
-            border: 1px solid #9B9B9B;
-          }
-          .card:hover {
-            border-color: #067df7;
-          }
-          .card h3 {
-            margin: 0;
-            color: #067df7;
-            font-size: 18px;
-          }
-          .card p {
-            margin: 0;
-            padding: 12px 0 0;
-            font-size: 13px;
-            color: #333;
-          }
-        `}</style> */}
-  </div>
+      </div>
     )
   }
 
 }
 
 const mapStateToProps = (state) => {
+  console.log('MAPSTATE----------')
+  console.log(state)
   return {
     shows: state.shows
   }
@@ -124,4 +76,4 @@ export default withRedux(
   initStore,
   null,
   mapStateToProps
-)(App)
+)(App) 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { myStyle } from './styles'
-import Link from 'next/link'
+import { Link } from '../../../../routes/routes'
 
 export default class Header extends Component {
     constructor(props) {
@@ -14,7 +14,7 @@ export default class Header extends Component {
                 <header className="header">
                     <div className="container">
                         <div className="header__left">
-                            <Link href='/amigos' as='/a'>
+                            <Link route='/a'>
                                 <h1 className="header__icon"><img src="../../../../static/logo.png"/></h1>
                             </Link>
                             <div className="header__search">
@@ -25,7 +25,7 @@ export default class Header extends Component {
                         </div>
                     </div>
                 </header>
-
+                { this.props.children }
 
                 <style jsx>{myStyle}
                 </style>

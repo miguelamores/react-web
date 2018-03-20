@@ -25,6 +25,7 @@
             ]
           ]
         }
-      ]
+      ],
+      ["transform-define", "./env-config.js"]
     ]
 }

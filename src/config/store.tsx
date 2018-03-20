@@ -4,10 +4,12 @@ import { applyMiddleware, createStore } from "redux"
 import reducer from '../reducers/shows'
 import { createLogger } from 'redux-logger'
 
-export const initStore = (initialState) => {
+const initStore = (initialState) => {
     const epicMiddleware = createEpicMiddleware(fetchShowsEpic)
     const logger = createLogger({ collapsed: true })
     const reduxMiddleware = applyMiddleware(epicMiddleware, logger)
 
     return createStore(reducer, initialState, reduxMiddleware)
 }
+
+export default initStore

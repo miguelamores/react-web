@@ -7,6 +7,8 @@ const shows = (state = initialState, action) => {
         // case 'GET_SHOWS':
         //     return {...state}
         case 'GET_SHOW_SUCCESS':
+            console.log('REDUCER----------')
+            console.log(action.payload)
             return {...state, shows: action.payload}
         default:
             return state
