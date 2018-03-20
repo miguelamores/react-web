@@ -36,29 +36,29 @@ class App extends Component {
   constructor (props) {
     super(props)
 
-    //this.i18n = startI18n(props.translations, lang)
+    this.i18n = startI18n(props.translations, lang)
   }
   
   render () {
 
     return (
-      /* <I18nextProvider i18n={this.i18n}>
-        
-      </I18nextProvider> */
+      <I18nextProvider i18n={this.i18n}>
+          <div>
+            <Header />
+            <NoSSR onSSR={<Loading />}>
+                <section>
+                  <h2>
+                    This section is <em>only</em> client-side rendered.
+                  </h2>
+                </section>
+          </NoSSR>
+            <TopSlider />
 
-      <div>
-        <Header />
-        <NoSSR onSSR={<Loading />}>
-            <section>
-              <h2>
-                This section is <em>only</em> client-side rendered.
-              </h2>
-            </section>
-      </NoSSR>
-        <TopSlider />
+            
+          </div>
+      </I18nextProvider>
 
-        
-      </div>
+      
     )
   }
 
