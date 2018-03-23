@@ -1,15 +1,16 @@
 import { createEpicMiddleware } from "redux-observable"
+import thunkMiddleware from 'redux-thunk'
 import { fetchShowsEpic } from '../epics/epics'
 import { applyMiddleware, createStore } from "redux"
-import reducer from '../reducers/shows'
+import shows from '../reducers/shows'
 import { createLogger } from 'redux-logger'
 
 const initStore = (initialState) => {
     const epicMiddleware = createEpicMiddleware(fetchShowsEpic)
     const logger = createLogger({ collapsed: true })
-    const reduxMiddleware = applyMiddleware(epicMiddleware, logger)
+    const reduxMiddleware = applyMiddleware(thunkMiddleware, epicMiddleware, logger)
 
-    return createStore(reducer, initialState, reduxMiddleware)
+    return createStore(shows, initialState, reduxMiddleware)
 }
 
 export default initStore

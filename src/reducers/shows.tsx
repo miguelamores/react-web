@@ -1,14 +1,12 @@
+import { GET_SHOWS_SUCCESS } from '../actions/actions'
+
 
 const initialState = {
     shows: []
 }
 const shows = (state = initialState, action) => {
-    switch (action) {
-        // case 'GET_SHOWS':
-        //     return {...state}
-        case 'GET_SHOW_SUCCESS':
-            console.log('REDUCER----------')
-            console.log(action.payload)
+    switch (action.type) {
+        case GET_SHOWS_SUCCESS:
             return {...state, shows: action.payload}
         default:
             return state
